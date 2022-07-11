@@ -9,7 +9,9 @@
             </div>
         </div>
         <div v-else>
-            No repositories available
+            <div class="display-5 text-center text-primary mt-5">
+              No repositories available
+            </div>
         </div>
     </div>
 </template>
