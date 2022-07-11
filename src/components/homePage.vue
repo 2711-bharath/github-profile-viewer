@@ -5,7 +5,7 @@
             <div class="d-flex justify-content-center mt-2 mb-3">
                 <img src="../assets/logo.png" alt="logo" height="160" width="300"/>
             </div>
-            <label for="username" class="form-label w-100 mb-3">
+            <label for="username" class="form-label w-100">
                 <span class="text-dark fw-normal mb-3 fs-6">Username</span>
                 <span class="text-danger sup-text ms-2">*</span>
                 <input type="text" class="form-control mt-2"
@@ -16,7 +16,10 @@
                     autocomplete="off"
                 />
             </label>
-            <div class="text-center mb-3">
+            <div v-if="in_valid_username" class="text-danger">
+              Please enter valid username
+            </div>
+            <div class="text-center my-3">
                 <button type="button" class="btn btn-primary hover-shadow" @click="emitSubmit()">
                     View Profile
                 </button>
@@ -37,7 +40,6 @@ export default {
   },
   methods: {
     emitSubmit() {
-      console.log('Hello');
       this.submitted = true;
       if (this.username !== '') { this.$emit('show-user', this.username); }
     },
